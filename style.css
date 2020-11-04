@@ -6,8 +6,8 @@ font-family: 'Lobster', cursive; */
 body {
   margin: 4rem;
   font-size: 2vw;
-  background-color: #fff;
-  color: black;
+  background-color: #42454a;
+  color: rgba(256, 256, 256, 0.85);
 }
 
 h1 {
@@ -22,7 +22,6 @@ p {
 
 a {
   text-decoration: none;
-  color: #121314;
   position: relative;
 }
 a:after {
