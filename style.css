@@ -33,6 +33,7 @@ p {
 a {
   text-decoration: none;
   position: relative;
+  color: inherit;
 }
 a:after {
   content: "";
