@@ -5,6 +5,7 @@
 	import About from "$lib/components/about.svelte";
 	import Articles from "$lib/components/articles.svelte";
 	import Speaking from "$lib/components/speaking.svelte";
+	export const prerender = true;
 </script>
 
 <div class="flex ml-4 justify-left items-center">
