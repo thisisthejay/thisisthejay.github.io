@@ -7,7 +7,7 @@
 </script>
 
 <Nav />
-<main class="mx-20">
+<main class="mx-6 lg:mx-20">
 	<slot />
 </main>
 <Footer />

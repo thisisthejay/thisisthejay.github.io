@@ -61,7 +61,7 @@
 	];
 </script>
 
-<div class="max-w-4xl my-4 mx-auto pb-24" id="speaking">
+<div class="min-w-full lg:max-w-4xl my-4 lg:mx-auto pb-24" id="speaking">
 	<h2 class="text-base/7 font-semibold text-secondary">Listen up</h2>
 	<h1 class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
 		sharing my voice online and in person
