@@ -13,7 +13,7 @@ const config = {
 			entries: ["*"], // prerender all routes
 		},
 		paths: {
-			base: process.argv.includes("dev") ? "" : process.env.BASE_PATH,
+			base: "",
 		},
 	},
 	preprocess: vitePreprocess(),
