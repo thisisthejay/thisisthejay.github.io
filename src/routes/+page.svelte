@@ -16,5 +16,5 @@
 	<Carousel />
 </div>
 <About />
-<Articles />
+
 <Speaking />
