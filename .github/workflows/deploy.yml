@@ -23,7 +23,7 @@ jobs:
 
       - name: Build
         env:
-          BASE_PATH: "/thisisthejay.github.io"
+          BASE_PATH: "/${{ github.event.repository.name }}"
         run: npm run build
 
       - name: Upload Artifacts
