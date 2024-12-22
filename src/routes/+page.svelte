@@ -5,10 +5,12 @@
 	import About from "$lib/components/about.svelte";
 	import Articles from "$lib/components/articles.svelte";
 	import Speaking from "$lib/components/speaking.svelte";
-	export const prerender = true;
+	import Projects from "$lib/components/projects.svelte";
+	import Sensecheck from "$lib/components/sensecheck.svelte";
+	import Beschool from "$lib/components/beschool.svelte";
 </script>
 
-<div class="flex ml-4 justify-left items-center">
+<div class="flex items-center ml-4 justify-left">
 	<Avatar />
 </div>
 <Hero />
@@ -18,3 +20,6 @@
 <About />
 
 <Speaking />
+<Projects />
+<Sensecheck />
+<Beschool />
