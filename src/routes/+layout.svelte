@@ -10,4 +10,5 @@
 <main class="mx-6 lg:mx-20">
 	<slot />
 </main>
+
 <Footer />
