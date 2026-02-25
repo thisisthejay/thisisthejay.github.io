@@ -4,7 +4,6 @@
   import Carousel from "$lib/components/carousel.svelte";
   import About from "$lib/components/about.svelte";
   import Speaking from "$lib/components/speaking.svelte";
-  import Projects from "$lib/components/projects.svelte";
   import Sensecheck from "$lib/components/sensecheck.svelte";
   import Beschool from "$lib/components/beschool.svelte";
 
@@ -57,6 +56,3 @@
 
 <About />
 <Speaking />
-<Projects />
-<Sensecheck />
-<Beschool />

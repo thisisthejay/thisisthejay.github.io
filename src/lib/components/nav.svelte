@@ -55,11 +55,9 @@
           >Speaking</a
         >
       </li>
-      <li>
-        <a href="/#projects" on:click={(e) => scrollToTarget(e, "projects")}
-          >Projects</a
-        >
-      </li>
+      <!-- <li>
+        <a href="/projects/">Projects</a>
+      </li> -->
     </ul>
   </nav>
 </div>
