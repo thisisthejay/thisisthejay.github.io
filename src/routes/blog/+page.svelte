@@ -2,7 +2,7 @@
   let { data } = $props();
 </script>
 
-<section class="mx-auto max-w-4xl py-12">
+<section class="mx-auto max-w-4xl py-24">
   <p class="text-base/7 font-semibold text-secondary">Blog</p>
   <h1 class="mt-2 text-4xl font-bold text-base-content">
     Writing on the intersection of law and technology
