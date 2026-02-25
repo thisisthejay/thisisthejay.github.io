@@ -1,24 +1,29 @@
 <script>
-	import { onMount } from "svelte";
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
 	let isScrolled = false;
+	let isHomePage = false;
 
-	// Detect scrolling to adjust navbar appearance
+	$: isHomePage = $page.url.pathname === '/';
+
 	onMount(() => {
 		const handleScroll = () => {
-			isScrolled = window.scrollY > 50; // Adjust the scroll value as needed
+			isScrolled = window.scrollY > 50;
 		};
 
-		window.addEventListener("scroll", handleScroll);
+		handleScroll();
+		window.addEventListener('scroll', handleScroll);
 
 		return () => {
-			window.removeEventListener("scroll", handleScroll);
+			window.removeEventListener('scroll', handleScroll);
 		};
 	});
 
-	// Smooth scroll to the target section with a default offset
+	/** @param {MouseEvent} event @param {string} targetId @param {number} [offset=60] */
 	function scrollToTarget(event, targetId, offset = 60) {
-		event.preventDefault(); // Prevent default anchor behavior
+		if (!isHomePage) return;
+		event.preventDefault();
 		const targetElement = document.getElementById(targetId);
 
 		if (targetElement) {
@@ -26,7 +31,7 @@
 
 			window.scrollTo({
 				top: targetPosition,
-				behavior: "smooth",
+				behavior: 'smooth'
 			});
 		}
 	}
@@ -35,18 +40,20 @@
 <div class="sticky top-0 z-50 flex items-center justify-start">
 	<nav class="mx-auto my-4">
 		<ul
-			class={`menu menu-horizontal bg-base-200 transition-all duration-300 ${
-				isScrolled ? "bg-secondary text-white shadow-xl" : "bg-base-200"
+			class={`menu menu-horizontal transition-all duration-300 ${
+				isScrolled ? 'bg-secondary text-white shadow-xl' : 'bg-base-200'
 			} rounded-box`}
 		>
+			<li><a href="/">Home</a></li>
+			<li><a href="/blog/">Blog</a></li>
 			<li>
-				<a href="#about" on:click={(e) => scrollToTarget(e, "about")}> About </a>
+				<a href="/#about" on:click={(e) => scrollToTarget(e, 'about')}>About</a>
 			</li>
 			<li>
-				<a href="#speaking" on:click={(e) => scrollToTarget(e, "speaking")}> Speaking </a>
+				<a href="/#speaking" on:click={(e) => scrollToTarget(e, 'speaking')}>Speaking</a>
 			</li>
 			<li>
-				<a href="#projects" on:click={(e) => scrollToTarget(e, "projects")}> Projects </a>
+				<a href="/#projects" on:click={(e) => scrollToTarget(e, 'projects')}>Projects</a>
 			</li>
 		</ul>
 	</nav>
