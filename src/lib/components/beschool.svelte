@@ -88,7 +88,7 @@
 			</div>
 			<div class="flex items-start justify-end lg:order-first">
 				<img
-					src="images/beschool-dashboard.png"
+					src="/images/beschool-dashboard.png"
 					alt="Product screenshot"
 					class="w-[48rem] max-w-none rounded-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
 					width="2432"
