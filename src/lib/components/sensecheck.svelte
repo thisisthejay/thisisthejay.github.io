@@ -107,7 +107,7 @@
         </div>
       </div>
       <img
-        src="images/sensecheck-dashboard.png"
+        src="/images/sensecheck-dashboard.png"
         alt="Product screenshot"
         class="w-[48rem] max-w-none rounded-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
         width="2432"
