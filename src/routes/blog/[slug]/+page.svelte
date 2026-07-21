@@ -3,46 +3,51 @@
   const PostComponent = data.post.component;
 </script>
 
-<article class="mx-auto max-w-3xl px-5 py-24 md:px-0">
-  <a href="/blog/" class="text-sm text-secondary hover:underline"
-    >← Back to all posts</a
-  >
-  <h1 class="mt-4 text-4xl font-bold text-base-content">{data.post.title}</h1>
-  <div class="mt-3 text-sm text-base-content/60">
-    <span>{data.post.formattedDate}</span>
-    {#if data.post.tags.length}
-      <span class="mx-2">•</span>
-      <span>{data.post.tags.join(" · ")}</span>
-    {/if}
-  </div>
+<svelte:head>
+  <title>{data.post.title} — Jay Smith</title>
+  <meta name="description" content={data.post.excerpt} />
+</svelte:head>
 
-  <div
-    class="prose prose-lg prose-neutral mt-10 max-w-none text-base-content/90
-      prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-base-content
-      prose-h2:mt-14 prose-h2:mb-5 prose-h2:text-3xl
-      prose-h3:mt-10 prose-h3:mb-4
-      prose-p:my-7 prose-p:leading-8
-      prose-a:text-primary prose-a:underline prose-a:decoration-2 prose-a:underline-offset-4
-      prose-blockquote:my-8 prose-blockquote:border-l-4 prose-blockquote:border-base-300 prose-blockquote:pl-5 prose-blockquote:italic
-      prose-ol:my-7 prose-ol:list-decimal prose-ol:pl-7
-      prose-ul:my-7 prose-ul:list-disc prose-ul:pl-7
-      prose-li:my-2 prose-li:leading-8
-      prose-strong:text-base-content
-      prose-code:rounded prose-code:bg-base-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-base-content
-      prose-pre:rounded-2xl prose-pre:bg-neutral prose-pre:text-neutral-content prose-pre:p-5"
-  >
+<article>
+  <header class="article-header paper-grid">
+    <div class="article-shell">
+      <a class="back" href="/blog/">← All notes</a>
+      <div class="meta">
+        <time datetime={data.post.date}>{data.post.formattedDate}</time>
+        <span>{data.post.tags.join(' / ')}</span>
+      </div>
+      <h1>{data.post.title}</h1>
+      <p class="dek">{data.post.excerpt}</p>
+    </div>
+  </header>
+
+  <div class="article-shell article-body">
     <PostComponent />
   </div>
 
-  {#if data.nextPost}
-    <div class="mt-12 rounded-2xl border border-base-300 bg-base-200 p-6">
-      <p class="text-base/7 font-semibold text-accent">Next post &rarr;</p>
-      <a
-        class="mt-2 block text-lg font-medium hover:underline"
-        href={`/blog/${data.nextPost.slug}/`}
-      >
-        {data.nextPost.title}
-      </a>
-    </div>
-  {/if}
+  <footer class="article-footer article-shell">
+    <div><span>Written by</span><strong>Jay Smith</strong><p>Legal engineer, builder and writer.</p></div>
+    {#if data.nextPost}
+      <a href={`/blog/${data.nextPost.slug}/`}><span>Read next</span><strong>{data.nextPost.title}</strong><b>→</b></a>
+    {:else}
+      <a href="/blog/"><span>Keep exploring</span><strong>All field notes</strong><b>→</b></a>
+    {/if}
+  </footer>
 </article>
+
+<style>
+  .article-header { padding-block: clamp(4rem, 9vw, 8rem); border-bottom: 1px solid var(--line); }
+  .back { display: inline-block; margin-bottom: 4rem; color: var(--muted); font-size: .75rem; font-weight: 720; }
+  .meta { display: flex; flex-wrap: wrap; gap: .7rem 1.5rem; margin-bottom: 1.2rem; color: var(--signal-dark); font-size: .68rem; font-weight: 780; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { margin: 0; max-width: 900px; font-size: clamp(3rem, 7.5vw, 6.6rem); line-height: .92; letter-spacing: -.065em; }
+  .dek { max-width: 680px; margin: 2rem 0 0; color: var(--muted); font-size: 1.2rem; line-height: 1.6; }
+  .article-body { padding-block: clamp(4rem, 8vw, 7rem); }
+  .article-footer { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2rem; padding-block: 2rem 5rem; border-top: 1px solid var(--line); }
+  .article-footer > div, .article-footer > a { display: grid; align-content: start; }
+  .article-footer a { position: relative; padding-left: 2rem; border-left: 1px solid var(--line); }
+  .article-footer span { margin-bottom: .5rem; color: var(--muted); font-size: .63rem; font-weight: 760; letter-spacing: .1em; text-transform: uppercase; }
+  .article-footer strong { font-size: 1.15rem; }
+  .article-footer p { margin: .4rem 0 0; color: var(--muted); font-size: .82rem; }
+  .article-footer b { position: absolute; right: 0; font-size: 1.4rem; }
+  @media (max-width: 600px) { .back { margin-bottom: 3rem; } .article-footer { grid-template-columns: 1fr; } .article-footer a { padding: 1.5rem 0 0; border-top: 1px solid var(--line); border-left: 0; } }
+</style>
