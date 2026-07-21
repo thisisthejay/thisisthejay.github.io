@@ -4,20 +4,16 @@
   import Footer from "$lib/components/footer.svelte";
   import { page } from "$app/stores";
 
-  $: isWorkshopPresentation = $page.url.pathname.startsWith(
-    "/legal-tech-workshop/presentations/",
-  );
+  $: isSuppressedPresentation = $page.url.pathname.startsWith("/presentation");
 </script>
 
-{#if !isWorkshopPresentation}
+{#if !isSuppressedPresentation}
   <Nav />
 {/if}
-<main
-  class="mx-6 min-h-screen lg:mx-20 bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px]"
->
+<main>
   <slot />
 </main>
 
-{#if !isWorkshopPresentation}
+{#if !isSuppressedPresentation}
   <Footer />
 {/if}

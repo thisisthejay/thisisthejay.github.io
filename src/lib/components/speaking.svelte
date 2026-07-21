@@ -10,15 +10,6 @@
 			link: "https://open.spotify.com/episode/0ZPRzMjBhZEN0ZyuZIFGHa?si=t7b_1LgzQUKrnBUciTTffg",
 		},
 		{
-			title: "You Want To Do What?",
-			episode: "Legal Engineer",
-			image: "/images/you_want_to_do_what.jpeg",
-			imageAlt: "You Want to Do What Podcast",
-			blurb: "Ever wondered what it's like to be a legal Engineer? I joined Dan to talk about what it involves",
-			platform: "Spotify",
-			link: "https://open.spotify.com/show/27xjpoJbHysKhR93yMF0sU?si=2b2340e0de4f4431",
-		},
-		{
 			title: "Colin Levy",
 			episode: "What Can LegalOps Learn from Implementation Science?",
 			image: "/images/colin.png",
@@ -99,7 +90,7 @@
 						</td>
 						<td>{item.platform}</td>
 						<th>
-							<a href={item.link} target="_blank"
+							<a href={item.link} target="_blank" aria-label={`Open ${item.episode}`}
 								><svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"

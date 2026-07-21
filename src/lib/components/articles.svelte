@@ -26,7 +26,7 @@
 
 	<div class="z-10 grid grid-cols-4 gap-10 lg:gap-36">
 		{#each articles as article}
-			<ArticleCard title={article.title} link={article.link} blurb={article.blurb} date={article.date} />
+			<ArticleCard title={article.title} link={article.link} blurb={article.blurb} />
 		{/each}
 	</div>
 </div>

@@ -9,7 +9,7 @@ tags:
 published: true
 ---
 
-When I first started working in law as a paralegal, a large part of my job was not related to giving advice but ensuring that the precedural steps throughout the matter were executed correctly. This work was given at the direction of the partner or senior associate. I learned a lot about what good advice looks like but also how to _deliver it_.
+When I first started working in law as a paralegal, a large part of my job was not related to giving advice but ensuring that the procedural steps throughout the matter were executed correctly. This work was given at the direction of the partner or senior associate. I learned a lot about what good advice looks like but also how to _deliver it_.
 
 The procedural work looked like:
 
@@ -33,7 +33,7 @@ A little while later I landed my first role as a legal engineer and continued bu
 
 ## Requirements
 
-One of the best things I did then was take a course in [Requirements Engineering](https://www.bcs.org/qualifications-and-certifications/certifications-for-professionals/business-analysis/practitioner-certificate-in-requirements-engineering/). It taught me how to build process maps, model relationships, define schemas and scope work well. It gave structure to things we do intuitively which is valuable because it then allowed me the layer on correct lanaguage and terminology to what I need to ask to keep moving. Most problems have been encountered before and have patterns you can re-use to solve them. It's never been more apparent with vibe-coding / agentic engineering that knowing _what_ to ask is the key differentiator between things ideas that live or die.
+One of the best things I did then was take a course in [Requirements Engineering](https://www.bcs.org/qualifications-and-certifications/certifications-for-professionals/business-analysis/practitioner-certificate-in-requirements-engineering/). It taught me how to build process maps, model relationships, define schemas and scope work well. It gave structure to things we do intuitively, which is valuable because it then allowed me to layer the correct language and terminology onto what I need to ask to keep moving. Most problems have been encountered before and have patterns you can re-use to solve them. It's never been more apparent with vibe-coding / agentic engineering that knowing _what_ to ask is the key differentiator between ideas that live or die.
 
 ## So what do Legal Engineers actually do?
 
@@ -41,8 +41,8 @@ Legal Engineers translate policies into processes and engineer processes into sy
 
 _Policies_ are how lawyers codify and articulate legislation or internal positions into something actionable that enables the business, anchors compliance and manages risk.
 
-_Processes_ are procedural steps for what should happen in order to follow the policiy (the TO-BE Happy Path) and should compare to the current state (AS-IS) and account for deviations, errors and graceful fallbacks.
+_Processes_ are procedural steps for what should happen in order to follow the policy (the TO-BE Happy Path) and should compare to the current state (AS-IS) and account for deviations, errors and graceful fallbacks.
 
 _Systems_ are where the steps are taken and are, more often than not, multiple systems. There is often an element of novelty, or rather, adaptation to your company's tech stack. Being able to design systems integrations and allow interoperability between platforms _is_ engineering work and where the policies break out of being a human, read-only document.
 
-It helps significantly to have a solid understanding of law in order to translate the policies. Better still, good process design should feedback into the policy itself so they converge on something pragmatic. Many legal engineers start as lawyers who learn the engineering pricniples but increasingly engineers are turning to law as there is a huge amount of innovation, promise and hope to fulfill.
+It helps significantly to have a solid understanding of law in order to translate the policies. Better still, good process design should feed back into the policy itself so they converge on something pragmatic. Many legal engineers start as lawyers who learn the engineering principles, but increasingly engineers are turning to law as there is a huge amount of innovation, promise and hope to fulfil.
