@@ -1,11 +1,41 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
+  import { absoluteUrl, AUTHOR_SCHEMA, PERSON_ID, SITE_URL } from "$lib/site";
+
   let { data } = $props();
+  const description = "Field notes by Jay Smith on legal engineering, legal operations, applied AI, stakeholder management and building better legal systems.";
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      AUTHOR_SCHEMA,
+      {
+        "@type": "Blog",
+        "@id": `${SITE_URL}/blog/#blog`,
+        url: absoluteUrl("/blog/"),
+        name: "Legal Engineering and Legal Operations Notes",
+        description,
+        inLanguage: "en-GB",
+        author: { "@id": PERSON_ID },
+        blogPost: data.posts.map((post) => ({
+          "@type": "BlogPosting",
+          "@id": `${absoluteUrl(`/blog/${post.slug}/`)}#article`,
+          url: absoluteUrl(`/blog/${post.slug}/`),
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          author: { "@id": PERSON_ID }
+        }))
+      }
+    ]
+  };
 </script>
 
-<svelte:head>
-  <title>Notes — Jay Smith</title>
-  <meta name="description" content="Field notes on legal engineering, legal operations, technology and building better systems." />
-</svelte:head>
+<Seo
+  title="Legal Engineering & Legal Operations Notes | Jay Smith"
+  {description}
+  path="/blog/"
+  structuredData={blogSchema}
+/>
 
 <section class="notes-hero paper-grid">
   <div class="shell">
@@ -22,20 +52,13 @@
       <article>
         <span class="index">{String(index + 1).padStart(2, '0')}</span>
         <div class="post-main">
-          <div class="meta"><time datetime={post.date}>{post.formattedDate}</time><span>{post.tags.join(' / ')}</span></div>
+          <div class="meta"><span>{post.tags.join(' / ')}</span></div>
           <h2><a href={`/blog/${post.slug}/`}>{post.title}</a></h2>
           <p>{post.excerpt}</p>
         </div>
         <a class="open" href={`/blog/${post.slug}/`} aria-label={`Read ${post.title}`}>↗</a>
       </article>
     {/each}
-  </div>
-</section>
-
-<section class="markdown-note">
-  <div class="shell note-grid">
-    <p class="eyebrow">Publishing principles</p>
-    <p>This site stays intentionally simple: each note is a Markdown file, versioned in Git, and built into a fast static page. The technology gets out of the way of the thinking.</p>
   </div>
 </section>
 
@@ -53,8 +76,5 @@
   article p { max-width: 630px; margin: 0; color: var(--muted); line-height: 1.6; }
   .open { align-self: center; display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--ink); border-radius: 50%; transition: all .2s ease; }
   .open:hover { color: white; background: var(--ink); transform: rotate(45deg); }
-  .markdown-note { padding-block: 4rem; background: var(--soft); }
-  .note-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
-  .note-grid > p:last-child { max-width: 700px; margin: 0; font-size: 1.25rem; line-height: 1.6; }
-  @media (max-width: 600px) { article { grid-template-columns: 28px 1fr; } .open { display: none; } .note-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { article { grid-template-columns: 28px 1fr; } .open { display: none; } }
 </style>

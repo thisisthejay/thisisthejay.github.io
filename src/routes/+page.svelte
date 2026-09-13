@@ -1,7 +1,37 @@
 <script>
   import LegalSystemDiagram from "$lib/components/LegalSystemDiagram.svelte";
   import CareerProfile from "$lib/components/CareerProfile.svelte";
+  import Seo from "$lib/components/Seo.svelte";
+  import { absoluteUrl, AUTHOR_SCHEMA, PERSON_ID, SITE_NAME, SITE_URL } from "$lib/site";
   let { data } = $props();
+
+  const description = "Jay Smith is a Legal Operations Senior Managing Counsel and Legal Engineer writing about legal engineering, legal operations, applied AI and better legal systems.";
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      AUTHOR_SCHEMA,
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: absoluteUrl("/"),
+        name: SITE_NAME,
+        alternateName: "This Is The Jay",
+        description,
+        inLanguage: "en-GB",
+        publisher: { "@id": PERSON_ID }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": `${SITE_URL}/#profile-page`,
+        url: absoluteUrl("/"),
+        name: "Jay Smith — Legal Engineer and Legal Operations Leader",
+        description,
+        inLanguage: "en-GB",
+        mainEntity: { "@id": PERSON_ID },
+        isPartOf: { "@id": `${SITE_URL}/#website` }
+      }
+    ]
+  };
 
   const capabilities = [
     { number: "01", title: "Legal operations", body: "Making complex legal work visible, measurable and easier to deliver." },
@@ -18,10 +48,12 @@
   ];
 </script>
 
-<svelte:head>
-  <title>Jay Smith — Legal engineer, builder & writer</title>
-  <meta name="description" content="Jay Smith writes and builds at the intersection of law, systems and technology." />
-</svelte:head>
+<Seo
+  title="Jay Smith | Legal Engineer & Legal Operations Counsel"
+  {description}
+  path="/"
+  structuredData={homeSchema}
+/>
 
 <section class="hero paper-grid">
   <div class="shell hero-inner">
@@ -106,7 +138,7 @@
     <div class="post-grid">
       {#each data.latestPosts as post, index}
         <article class:lead-post={index === 0}>
-          <div class="post-meta"><span>{post.formattedDate}</span><span>{post.tags[0] ?? 'Note'}</span></div>
+          <div class="post-meta"><span>{post.tags[0] ?? 'Note'}</span></div>
           <h3><a href={`/blog/${post.slug}/`}>{post.title}</a></h3>
           <p>{post.excerpt}</p>
           <a class="arrow-link" href={`/blog/${post.slug}/`}>Read note <span>→</span></a>

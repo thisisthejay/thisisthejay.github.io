@@ -1,4 +1,4 @@
-/** @typedef {{title?: string, excerpt?: string, date?: string, tags?: string[], published?: boolean}} BlogMetadata */
+/** @typedef {{title?: string, excerpt?: string, date?: string | Date, tags?: string[], published?: boolean}} BlogMetadata */
 /** @typedef {{metadata?: BlogMetadata, default: import('svelte').Component}} BlogModule */
 
 const postModules = import.meta.glob('/src/lib/content/blog/*.md', { eager: true });
@@ -19,13 +19,19 @@ function formatDate(dateString) {
 function mapPost([path, module]) {
 	const slug = path.split('/').pop()?.replace('.md', '') ?? '';
 	const metadata = module.metadata ?? {};
+	if (!metadata.title) {
+		throw new Error(`Blog post ${path} is missing a title or has invalid frontmatter.`);
+	}
+	const date = metadata.date instanceof Date
+		? metadata.date.toISOString()
+		: metadata.date ?? '';
 
 	return {
 		slug,
-		title: metadata.title ?? 'Untitled post',
+		title: metadata.title,
 		excerpt: metadata.excerpt ?? '',
-		date: metadata.date ?? '',
-		formattedDate: formatDate(metadata.date ?? ''),
+		date,
+		formattedDate: formatDate(date),
 		tags: metadata.tags ?? [],
 		published: metadata.published !== false,
 		component: module.default

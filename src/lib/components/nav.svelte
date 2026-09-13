@@ -17,6 +17,7 @@
 
     <nav id="site-nav" class:open aria-label="Main navigation">
       <a class:active={$page.url.pathname.startsWith('/blog')} href="/blog/" onclick={close}>Notes</a>
+      <a class:active={$page.url.pathname.startsWith('/roadmap')} href="/roadmap/" onclick={close}>Roadmap</a>
       <a class:active={$page.url.pathname.startsWith('/projects')} href="/projects/" onclick={close}>Work</a>
       <a href="/#about" onclick={close}>About</a>
       <a href="/#contact" onclick={close}>Connect <span aria-hidden="true">↗</span></a>

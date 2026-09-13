@@ -1,5 +1,5 @@
 ---
-title: WTF is Legal Engineering Anyway?
+title: WTF Is Legal Engineering Anyway?
 excerpt: Modern problems require modern solutions. Let me explain why legal engineering is worth investing in.
 date: 2026-01-26
 tags:
@@ -8,6 +8,14 @@ tags:
   - requirements gathering
 published: true
 ---
+
+<script>
+  import ArticleCallout from "$lib/components/article/ArticleCallout.svelte";
+  import ArticlePullQuote from "$lib/components/article/ArticlePullQuote.svelte";
+  import ArticleVisual from "$lib/components/article/ArticleVisual.svelte";
+  import DefinitionGrid from "$lib/components/article/DefinitionGrid.svelte";
+  import LegalSystemDiagram from "$lib/components/LegalSystemDiagram.svelte";
+</script>
 
 When I first started working in law as a paralegal, a large part of my job was not related to giving advice but ensuring that the procedural steps throughout the matter were executed correctly. This work was given at the direction of the partner or senior associate. I learned a lot about what good advice looks like but also how to _deliver it_.
 
@@ -21,7 +29,13 @@ The procedural work looked like:
 
 It wasn't all on me either, secretaries picked up dictation; the post team sealed, stamped and tracked outgoing mail; deeds clerks made sure document were stored and records updated. Looking back, everything worked.
 
-_"Nostlagia is a helluva drug."_
+<ArticleCallout label="What was really happening" title="The service was a system, even when nobody called it one.">
+
+Every role carried part of the process. Knowledge lived in people, routines and hand-offs—not only in the lawyer’s advice. Remove those supports without redesigning the work and the burden does not disappear; it moves.
+
+</ArticleCallout>
+
+<ArticlePullQuote quote="Nostalgia is a helluva drug." context="Especially when the old machine had real flaws" />
 
 In the first decade of my career, we aggressively dismantled the machine. Emails took over from post so lawyers typed their own (largely because they couldn't figure out delegate permissions in Outlook). Some documents could be digitally signed, or worse, signed-scanned-and-emailed back (yuck). The impact of email meant the cadence of inbound mail, review then reply got shorter and shorter. Client expectations rose too.
 
@@ -31,13 +45,33 @@ About 10 years ago I made a conscious choice to pivot into legal engineering. It
 
 A little while later I landed my first role as a legal engineer and continued building. It was slightly "undefined" work (which is where the inspiration for my [github tag line](https://github.com/thisisthejay) came from) but it was impactful. I worked with some brilliant lawyers and marketers and built websites, pipelines and dealt with a lot of system integration work - I learned how to _make things work_.
 
+<ArticlePullQuote quote="I learned how to make things work." context="The job behind the job" />
+
 ## Requirements
 
 One of the best things I did then was take a course in [Requirements Engineering](https://www.bcs.org/qualifications-and-certifications/certifications-for-professionals/business-analysis/practitioner-certificate-in-requirements-engineering/). It taught me how to build process maps, model relationships, define schemas and scope work well. It gave structure to things we do intuitively, which is valuable because it then allowed me to layer the correct language and terminology onto what I need to ask to keep moving. Most problems have been encountered before and have patterns you can re-use to solve them. It's never been more apparent with vibe-coding / agentic engineering that knowing _what_ to ask is the key differentiator between ideas that live or die.
 
+<ArticleCallout label="The practical lesson" title="Better requirements create better options." tone="dark">
+
+Requirements engineering is not paperwork before the interesting work. It is how you expose assumptions, define the real constraint and stop a plausible solution becoming the wrong solution.
+
+</ArticleCallout>
+
 ## So what do Legal Engineers actually do?
 
 Legal Engineers translate policies into processes and engineer processes into systems.
+
+<DefinitionGrid
+  items={[
+    { term: "Policy", description: "Intent, duties and risk expressed as an organisational position." },
+    { term: "Process", description: "Steps, roles, decisions and fallbacks that turn intent into repeatable work." },
+    { term: "System", description: "Tools, data and controls that make the process usable, observable and scalable." }
+  ]}
+/>
+
+<ArticleVisual>
+  <LegalSystemDiagram />
+</ArticleVisual>
 
 _Policies_ are how lawyers codify and articulate legislation or internal positions into something actionable that enables the business, anchors compliance and manages risk.
 

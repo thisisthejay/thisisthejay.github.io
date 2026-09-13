@@ -1,11 +1,47 @@
 <script>
   import LegalSystemDiagram from "$lib/components/LegalSystemDiagram.svelte";
+  import Seo from "$lib/components/Seo.svelte";
+  import { absoluteUrl, AUTHOR_SCHEMA, PERSON_ID, SITE_URL } from "$lib/site";
+
+  const description = "Legal engineering projects and case studies by Jay Smith, including legal technology, service design, requirements engineering and workflow systems.";
+  const projectsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      AUTHOR_SCHEMA,
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE_URL}/projects/#collection`,
+        url: absoluteUrl("/projects/"),
+        name: "Legal Engineering Projects and Case Studies",
+        description,
+        inLanguage: "en-GB",
+        creator: { "@id": PERSON_ID },
+        hasPart: [
+          {
+            "@type": "CreativeWork",
+            name: "SenseCheck",
+            description: "An identity and bank-detail verification product for estate-planning lawyers.",
+            creator: { "@id": PERSON_ID }
+          },
+          {
+            "@type": "SoftwareApplication",
+            name: "BE School Reporting",
+            applicationCategory: "BusinessApplication",
+            description: "A full-stack reporting and workflow application for teachers and administrators.",
+            creator: { "@id": PERSON_ID }
+          }
+        ]
+      }
+    ]
+  };
 </script>
 
-<svelte:head>
-  <title>Selected work — Jay Smith</title>
-  <meta name="description" content="Selected legal engineering, product and software work by Jay Smith." />
-</svelte:head>
+<Seo
+  title="Legal Engineering Projects & Case Studies | Jay Smith"
+  {description}
+  path="/projects/"
+  structuredData={projectsSchema}
+/>
 
 <section class="work-hero paper-grid">
   <div class="shell">
