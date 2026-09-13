@@ -113,7 +113,10 @@ img { max-width: 100%; }
 .article-body p { margin: 1.5rem 0; }
 .article-body a { color: var(--signal-dark); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .article-body ul, .article-body ol { margin: 1.6rem 0; padding-left: 1.4rem; }
+.article-body ul { list-style: disc; }
+.article-body ol { list-style: decimal; }
 .article-body li { margin: .6rem 0; padding-left: .25rem; }
+.article-body li::marker { color: var(--signal); font-weight: 750; }
 .article-body blockquote { margin: 2.5rem 0; padding: .2rem 0 .2rem 1.5rem; border-left: 3px solid var(--signal); color: var(--muted); font-size: 1.25rem; font-style: italic; }
 .article-body code { padding: .15rem .35rem; border-radius: 4px; background: var(--soft); font-size: .92em; }
 .article-body pre { overflow-x: auto; padding: 1.25rem; border-radius: 8px; background: var(--ink); color: white; }

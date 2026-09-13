@@ -1,10 +1,33 @@
 <script>
   const roles = [
-    { title: "Legal Operations Managing Counsel", mode: "Leadership" },
+    { title: "Legal Operations Senior Managing Counsel", mode: "Leadership" },
     { title: "Head of Legal Operations", mode: "Transformation" },
     { title: "Senior Legal Operations Manager", mode: "Operations" },
     { title: "Legal Engineer", mode: "Engineering" },
     { title: "Founder, SenseCheck Technologies", mode: "Product" }
+  ];
+
+  const recognition = [
+    {
+      category: "In-house Legal Team",
+      project: "Remote",
+      href: "https://lawyerseurope.live.ft.com/page/6357776/2026-shortlist"
+    },
+    {
+      category: "New Skills",
+      project: "From advising to building",
+      href: "https://www.linkedin.com/posts/remote.com_innovative-lawyers-awards-europe-2026-a-activity-7484910010712526848-j2fG"
+    },
+    {
+      category: "New Products & Services",
+      project: "Compliance Watchtower",
+      href: "https://www.linkedin.com/posts/remote.com_innovative-lawyers-awards-europe-2026-a-activity-7484910010712526848-j2fG"
+    },
+    {
+      category: "Self-Service Tools",
+      project: "Legal Help Desk",
+      href: "https://www.linkedin.com/posts/remote.com_innovative-lawyers-awards-europe-2026-a-activity-7484910010712526848-j2fG"
+    }
   ];
 
   const credentials = [
@@ -31,6 +54,7 @@
       <div class="bio">
         <p>I started in law close to the work: preparing documents, moving matters forward and learning how good advice is actually delivered.</p>
         <p>That operational perspective became a career spanning legal engineering, legal operations leadership, software development and company building. The thread through all of it is translation—between policy and practice, specialists and users, ambition and execution.</p>
+        <p>Today I’m a Legal Operations Senior Managing Counsel. Titles describe the seat; Legal Engineer still describes how I think and work.</p>
       </div>
     </div>
 
@@ -48,7 +72,24 @@
           </article>
         {/each}
       </div>
-      <p class="board-note">Across leading law firms, global organisations and a venture of my own.</p>
+      <p class="board-note">Across leading law firms, global organisations and a venture of my own. Different titles, one continuing thread: turning legal judgement into systems people can use.</p>
+    </div>
+
+    <div class="recognition">
+      <div class="recognition-heading">
+        <p class="eyebrow">Recognition / 2026</p>
+        <h3>Four places on the shortlist.</h3>
+        <p>Remote’s in-house Legal team has been recognised by the FT and RSGI Innovative Lawyers Awards Europe—on the overall team shortlist and in three innovation categories.</p>
+      </div>
+      <div class="recognition-list">
+        {#each recognition as item, index}
+          <a href={item.href} target="_blank" rel="noreferrer">
+            <span class="recognition-number">{String(index + 1).padStart(2, '0')}</span>
+            <span><strong>{item.category}</strong><small>{item.project}</small></span>
+            <b aria-hidden="true">↗</b>
+          </a>
+        {/each}
+      </div>
     </div>
 
     <div class="credentials">
@@ -84,6 +125,17 @@
   .roles h3 { margin: 0; font-size: clamp(1.2rem, 2.6vw, 2rem); line-height: 1; letter-spacing: -.04em; }
   .role-mode { color: var(--muted); font-size: .62rem; font-weight: 720; letter-spacing: .08em; text-transform: uppercase; }
   .board-note { margin: 0; padding: 1rem 0; color: var(--muted); font-size: .68rem; line-height: 1.5; }
+  .recognition { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(3rem, 8vw, 8rem); margin-top: clamp(5rem, 9vw, 8rem); }
+  .recognition-heading h3 { margin: 0; font-size: clamp(2.1rem, 4vw, 3.6rem); line-height: .96; letter-spacing: -.05em; }
+  .recognition-heading > p:last-child { max-width: 430px; margin: 1.4rem 0 0; color: var(--muted); line-height: 1.65; }
+  .recognition-list { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); }
+  .recognition-list a { display: grid; grid-template-columns: 34px 1fr auto; align-items: start; gap: .8rem; min-height: 126px; padding: 1.2rem; border-bottom: 1px solid #c8c8c3; transition: background .2s ease; }
+  .recognition-list a:nth-child(odd) { border-right: 1px solid #c8c8c3; }
+  .recognition-list a:hover { background: var(--paper); }
+  .recognition-number { color: var(--signal-dark); font-size: .62rem; font-weight: 800; letter-spacing: .08em; }
+  .recognition-list strong { display: block; font-size: .9rem; line-height: 1.25; }
+  .recognition-list small { display: block; margin-top: .5rem; color: var(--muted); font-size: .7rem; line-height: 1.35; }
+  .recognition-list b { font-weight: 500; }
   .credentials { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(3rem, 8vw, 8rem); margin-top: clamp(5rem, 9vw, 8rem); }
   .credentials-heading h3 { margin: 0; font-size: clamp(2.1rem, 4vw, 3.6rem); line-height: .96; letter-spacing: -.05em; }
   .credentials-heading > p:last-child { max-width: 430px; margin: 1.4rem 0 0; color: var(--muted); line-height: 1.65; }
@@ -96,11 +148,13 @@
   .credential-list b { font-weight: 500; }
   @media (max-width: 900px) { .profile-intro { grid-template-columns: 1fr 2fr; } .bio { grid-column: 2; } }
   @media (max-width: 650px) {
-    .profile-intro, .credentials { grid-template-columns: 1fr; }
+    .profile-intro, .recognition, .credentials { grid-template-columns: 1fr; }
     .bio { grid-column: auto; }
     .career-board { padding-inline: 1rem; box-shadow: 8px 8px 0 #d1d1cc; }
     .roles article { grid-template-columns: 30px 1fr; }
     .role-mode { grid-column: 2; margin-top: -.5rem; }
     .credential-list a { grid-template-columns: 64px 1fr auto; }
+    .recognition-list { grid-template-columns: 1fr; }
+    .recognition-list a:nth-child(odd) { border-right: 0; }
   }
 </style>

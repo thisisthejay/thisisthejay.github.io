@@ -5,8 +5,8 @@
       <h2>Good systems start<br />with better questions.</h2>
     </div>
     <div class="footer-links">
-      <a href="https://www.linkedin.com/in/jermainepaulsmith/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
-      <a href="https://github.com/thisisthejay" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+      <a href="https://www.linkedin.com/in/jermainepaulsmith/" target="_blank" rel="me noreferrer">LinkedIn <span>↗</span></a>
+      <a href="https://github.com/thisisthejay" target="_blank" rel="me noreferrer">GitHub <span>↗</span></a>
     </div>
   </div>
   <div class="shell footer-base">

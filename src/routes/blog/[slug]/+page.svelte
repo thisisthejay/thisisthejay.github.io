@@ -1,19 +1,60 @@
 <script>
+  import Seo from "$lib/components/Seo.svelte";
+  import { absoluteUrl, AUTHOR_SCHEMA, PERSON_ID, SITE_URL, SOCIAL_IMAGE } from "$lib/site";
+
   let { data } = $props();
   const PostComponent = data.post.component;
+  const articlePath = `/blog/${data.post.slug}/`;
+  const articleUrl = absoluteUrl(articlePath);
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      AUTHOR_SCHEMA,
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${articleUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+          { "@type": "ListItem", position: 2, name: "Notes", item: absoluteUrl("/blog/") },
+          { "@type": "ListItem", position: 3, name: data.post.title, item: articleUrl }
+        ]
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": `${articleUrl}#article`,
+        mainEntityOfPage: articleUrl,
+        url: articleUrl,
+        headline: data.post.title,
+        description: data.post.excerpt,
+        datePublished: data.post.date,
+        image: absoluteUrl(SOCIAL_IMAGE),
+        inLanguage: "en-GB",
+        keywords: data.post.tags.join(", "),
+        about: data.post.tags,
+        author: { "@id": PERSON_ID },
+        publisher: { "@id": PERSON_ID },
+        isPartOf: { "@id": `${SITE_URL}/blog/#blog` },
+        breadcrumb: { "@id": `${articleUrl}#breadcrumb` }
+      }
+    ]
+  };
 </script>
 
-<svelte:head>
-  <title>{data.post.title} — Jay Smith</title>
-  <meta name="description" content={data.post.excerpt} />
-</svelte:head>
+<Seo
+  title={`${data.post.title} | Jay Smith`}
+  description={data.post.excerpt}
+  path={articlePath}
+  type="article"
+  publishedTime={data.post.date}
+  tags={data.post.tags}
+  structuredData={articleSchema}
+/>
 
 <article>
   <header class="article-header paper-grid">
     <div class="article-shell">
       <a class="back" href="/blog/">← All notes</a>
       <div class="meta">
-        <time datetime={data.post.date}>{data.post.formattedDate}</time>
         <span>{data.post.tags.join(' / ')}</span>
       </div>
       <h1>{data.post.title}</h1>
@@ -26,7 +67,7 @@
   </div>
 
   <footer class="article-footer article-shell">
-    <div><span>Written by</span><strong>Jay Smith</strong><p>Legal engineer, builder and writer.</p></div>
+    <div><span>Written by</span><a class="author" href="/#about" rel="author">Jay Smith</a><p>Legal Engineer</p></div>
     {#if data.nextPost}
       <a href={`/blog/${data.nextPost.slug}/`}><span>Read next</span><strong>{data.nextPost.title}</strong><b>→</b></a>
     {:else}
@@ -47,6 +88,7 @@
   .article-footer a { position: relative; padding-left: 2rem; border-left: 1px solid var(--line); }
   .article-footer span { margin-bottom: .5rem; color: var(--muted); font-size: .63rem; font-weight: 760; letter-spacing: .1em; text-transform: uppercase; }
   .article-footer strong { font-size: 1.15rem; }
+  .article-footer .author { width: fit-content; color: var(--ink); font-size: 1.15rem; font-weight: 760; }
   .article-footer p { margin: .4rem 0 0; color: var(--muted); font-size: .82rem; }
   .article-footer b { position: absolute; right: 0; font-size: 1.4rem; }
   @media (max-width: 600px) { .back { margin-bottom: 3rem; } .article-footer { grid-template-columns: 1fr; } .article-footer a { padding: 1.5rem 0 0; border-top: 1px solid var(--line); border-left: 0; } }
