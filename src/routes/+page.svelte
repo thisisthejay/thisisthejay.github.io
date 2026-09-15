@@ -58,7 +58,7 @@
 <section class="hero paper-grid">
   <div class="shell hero-inner">
     <div class="hero-copy">
-      <p class="eyebrow">Legal engineer / Builder / Writer</p>
+      <p class="eyebrow">Legal Engineer</p>
       <h1 class="display">Better law<br /><span class="outline">by design.</span></h1>
       <p class="lede">I’m Jay Smith. I translate legal intent into processes, products and systems that people can actually use.</p>
       <div class="hero-actions">

@@ -1,5 +1,5 @@
 ---
-title: Slow Is Smooth and Smooth Is Fast
+title: Slow is Smooth and Smooth is Fast
 excerpt: AI can generate work faster than people can absorb it. Thoughtfulness is part of the delivery.
 date: 2026-08-04
 tags:

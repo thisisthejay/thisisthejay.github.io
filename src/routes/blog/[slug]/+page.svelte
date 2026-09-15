@@ -3,10 +3,10 @@
   import { absoluteUrl, AUTHOR_SCHEMA, PERSON_ID, SITE_URL, SOCIAL_IMAGE } from "$lib/site";
 
   let { data } = $props();
-  const PostComponent = data.post.component;
-  const articlePath = `/blog/${data.post.slug}/`;
-  const articleUrl = absoluteUrl(articlePath);
-  const articleSchema = {
+  let PostComponent = $derived(data.post.component);
+  let articlePath = $derived(`/blog/${data.post.slug}/`);
+  let articleUrl = $derived(absoluteUrl(articlePath));
+  let articleSchema = $derived({
     "@context": "https://schema.org",
     "@graph": [
       AUTHOR_SCHEMA,
@@ -37,7 +37,7 @@
         breadcrumb: { "@id": `${articleUrl}#breadcrumb` }
       }
     ]
-  };
+  });
 </script>
 
 <Seo

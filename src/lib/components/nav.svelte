@@ -8,7 +8,7 @@
   <div class="shell nav-wrap">
     <a class="brand" href="/" aria-label="Jay Smith, home" onclick={close}>
       <span class="brand-mark">JS</span>
-      <span class="brand-name">Jay Smith <small>Legal engineer</small></span>
+      <span class="brand-name">Jay Smith <small>Legal Engineer</small></span>
     </a>
 
     <button class="menu-toggle" aria-expanded={open} aria-controls="site-nav" onclick={() => (open = !open)}>
