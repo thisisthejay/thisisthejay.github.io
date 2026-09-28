@@ -11,22 +11,26 @@
     {
       category: "In-house Legal Team",
       project: "Remote",
+      result: "Shortlisted",
       href: "https://lawyerseurope.live.ft.com/page/6357776/2026-shortlist"
     },
     {
       category: "New Skills",
       project: "From advising to building",
-      href: "https://www.linkedin.com/posts/remote.com_innovative-lawyers-awards-europe-2026-a-activity-7484910010712526848-j2fG"
+      result: "Winner",
+      href: "https://www.linkedin.com/posts/nataliacataife_ftinnovativelawyers-legalops-legalinnovation-ugcPost-7509227815666364416-CLml/"
     },
     {
       category: "New Products & Services",
       project: "Compliance Watchtower",
-      href: "https://www.linkedin.com/posts/remote.com_innovative-lawyers-awards-europe-2026-a-activity-7484910010712526848-j2fG"
+      result: "Highly Commended",
+      href: "https://www.linkedin.com/posts/nataliacataife_ftinnovativelawyers-legalops-legalinnovation-ugcPost-7509227815666364416-CLml/"
     },
     {
       category: "Self-Service Tools",
       project: "Legal Help Desk",
-      href: "https://www.linkedin.com/posts/remote.com_innovative-lawyers-awards-europe-2026-a-activity-7484910010712526848-j2fG"
+      result: "Highly Commended",
+      href: "https://www.linkedin.com/posts/nataliacataife_ftinnovativelawyers-legalops-legalinnovation-ugcPost-7509227815666364416-CLml/"
     }
   ];
 
@@ -77,15 +81,15 @@
 
     <div class="recognition">
       <div class="recognition-heading">
-        <p class="eyebrow">Recognition / 2026</p>
-        <h3>Four places on the shortlist.</h3>
-        <p>Remote’s in-house Legal team has been recognised by the FT and RSGI Innovative Lawyers Awards Europe—on the overall team shortlist and in three innovation categories.</p>
+        <p class="eyebrow">FT Innovative Lawyers Europe / 2026</p>
+        <h3>One win. Two highly commended.</h3>
+        <p>Remote’s Legal team won the New Skills award for moving from advising to building. Compliance Watchtower and our self-service Legal Help Desk were both Highly Commended.</p>
       </div>
       <div class="recognition-list">
         {#each recognition as item, index}
-          <a href={item.href} target="_blank" rel="noreferrer">
+          <a href={item.href} target="_blank" rel="noreferrer" class:winner={item.result === "Winner"}>
             <span class="recognition-number">{String(index + 1).padStart(2, '0')}</span>
-            <span><strong>{item.category}</strong><small>{item.project}</small></span>
+            <span><em>{item.result}</em><strong>{item.category}</strong><small>{item.project}</small></span>
             <b aria-hidden="true">↗</b>
           </a>
         {/each}
@@ -132,9 +136,15 @@
   .recognition-list a { display: grid; grid-template-columns: 34px 1fr auto; align-items: start; gap: .8rem; min-height: 126px; padding: 1.2rem; border-bottom: 1px solid #c8c8c3; transition: background .2s ease; }
   .recognition-list a:nth-child(odd) { border-right: 1px solid #c8c8c3; }
   .recognition-list a:hover { background: var(--paper); }
+  .recognition-list a.winner { background: var(--ink); color: white; }
+  .recognition-list a.winner:hover { background: #292929; }
   .recognition-number { color: var(--signal-dark); font-size: .62rem; font-weight: 800; letter-spacing: .08em; }
+  .recognition-list a.winner .recognition-number { color: #b8baff; }
+  .recognition-list em { display: inline-block; margin-bottom: .7rem; padding: .25rem .42rem; border: 1px solid currentColor; border-radius: 999px; color: var(--signal-dark); font-size: .53rem; font-style: normal; font-weight: 820; letter-spacing: .1em; line-height: 1; text-transform: uppercase; }
+  .recognition-list a.winner em { color: #b8baff; }
   .recognition-list strong { display: block; font-size: .9rem; line-height: 1.25; }
   .recognition-list small { display: block; margin-top: .5rem; color: var(--muted); font-size: .7rem; line-height: 1.35; }
+  .recognition-list a.winner small { color: #aaa; }
   .recognition-list b { font-weight: 500; }
   .credentials { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(3rem, 8vw, 8rem); margin-top: clamp(5rem, 9vw, 8rem); }
   .credentials-heading h3 { margin: 0; font-size: clamp(2.1rem, 4vw, 3.6rem); line-height: .96; letter-spacing: -.05em; }

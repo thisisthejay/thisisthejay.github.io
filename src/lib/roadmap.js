@@ -46,7 +46,8 @@ export const roadmapNodes = [
     summary: "A repeatable way to detect, assess and route legal or regulatory change before it surprises the business.",
     meaning: "The scanner turns incoming change into a decision: irrelevant, watch, investigate or implement. Its value comes from reaching an owner and changing the operating position when action is required.",
     setup: ["Define topics, jurisdictions and trusted feeds.", "Triage changes by impact, certainty and effective date.", "Route accepted changes into an owned SOP update."],
-    signals: ["Time from publication to triage", "Changes awaiting an owner", "SOPs updated before effective date"]
+    signals: ["Time from publication to triage", "Changes awaiting an owner", "SOPs updated before effective date"],
+    links: [{ label: "Compliance Watchtower — Highly Commended", href: "https://www.linkedin.com/posts/nataliacataife_ftinnovativelawyers-legalops-legalinnovation-ugcPost-7509227815666364416-CLml/" }]
   },
   {
     id: "sops", x: 520, y: 520, width: 240, kind: "capability", group: "Knowledge",
@@ -90,7 +91,8 @@ export const roadmapNodes = [
     summary: "A central place for employees or customers to ask for legal support and have work triaged to the right route.",
     meaning: "Intake should collect enough structure to act without making the requester understand the legal team’s org chart. Deals, employment, tax, NDAs and other work can share a front door while following different paths behind it.",
     setup: ["Map how requests arrive today, including Slack and Teams.", "Design the smallest useful question set for each topic.", "Route by expertise, capacity, geography, urgency and availability.", "Make adoption part of the SOP and continuously refine it from feedback."],
-    signals: ["Adoption by channel", "Time to triage", "Correct-first-time routing", "Requester effort"]
+    signals: ["Adoption by channel", "Time to triage", "Correct-first-time routing", "Requester effort"],
+    links: [{ label: "Legal Help Desk — Highly Commended", href: "https://www.linkedin.com/posts/nataliacataife_ftinnovativelawyers-legalops-legalinnovation-ugcPost-7509227815666364416-CLml/" }]
   },
   {
     id: "triage", x: 500, y: 790, width: 235, kind: "agent", group: "Demand",
@@ -179,7 +181,10 @@ export const roadmapNodes = [
     meaning: "Curiosity becomes capability when experiments can touch realistic workflows and have a route towards production. The environment needs approved models, identity, logging, data boundaries, deployment paths and engineering support proportional to the risk.",
     setup: ["Provide secure access to capable frontier models.", "Create reusable hosting, authentication and observability.", "Make data classifications and boundaries easy to understand.", "Give promising prototypes a path into supported production."],
     signals: ["Time from idea to safe prototype", "Experiments reaching real users", "Reusable components created", "Incidents and near misses learned from"],
-    links: [{ label: "Read Safe Places to Play", href: "/blog/safe-places-to-play/", internal: true }]
+    links: [
+      { label: "Read Safe Places to Play", href: "/blog/safe-places-to-play/", internal: true },
+      { label: "New Skills — Winner", href: "https://www.linkedin.com/posts/nataliacataife_ftinnovativelawyers-legalops-legalinnovation-ugcPost-7509227815666364416-CLml/" }
+    ]
   }
 ];
 

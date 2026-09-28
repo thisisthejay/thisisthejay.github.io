@@ -5,7 +5,7 @@
   import { absoluteUrl, AUTHOR_SCHEMA, PERSON_ID, SITE_NAME, SITE_URL } from "$lib/site";
   let { data } = $props();
 
-  const description = "Jay Smith is a Legal Operations Senior Managing Counsel and Legal Engineer writing about legal engineering, legal operations, applied AI and better legal systems.";
+  const description = "Jay Smith is a Legal Engineer and Legal Operations Senior Managing Counsel on Remote’s FT Innovative Lawyers Europe 2026 award-winning Legal team.";
   const homeSchema = {
     "@context": "https://schema.org",
     "@graph": [

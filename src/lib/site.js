@@ -10,6 +10,7 @@ export const AUTHOR_SCHEMA = {
 	url: `${SITE_URL}/#about`,
 	image: `${SITE_URL}/images/jay.png`,
 	jobTitle: ['Legal Operations Senior Managing Counsel', 'Legal Engineer'],
+	award: 'FT Innovative Lawyers Europe 2026 — New Skills (Remote Legal team)',
 	worksFor: {
 		'@type': 'Organization',
 		name: 'Remote',
